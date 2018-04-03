@@ -1,0 +1,29 @@
+syntax = "proto2";
+package request;
+option java_package = "com.game.message";
+option java_outer_classname = "RequestWrapper";
+
+enum Type{
+    LOGIN=0;
+    SERVICE=1;
+}
+
+message Request {
+    required Type type = 1;
+    required int64 commandId = 2;
+    extensions 3 to max;
+}
+
+extend Request {
+    optional Login login = 3;
+    optional Service service = 4;
+}
+
+message Login {
+    required string user = 1;
+    required string pwd = 2;
+}
+
+message Service {
+    optional string content = 1;
+}

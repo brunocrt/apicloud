@@ -1,0 +1,21 @@
+syntax = "proto2";
+package response;
+option java_package = "com.game.message";
+option java_outer_classname = "ResponseWrapper";
+/*
+1、HeartMessage
+2、OGGameApiMoneyAck
+*/
+
+message Response {
+
+
+    required int64 commandId = 1;
+
+    required int32 state = 2;
+
+    optional string value = 3;
+
+    optional string message = 4;
+
+}
